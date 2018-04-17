@@ -113,16 +113,16 @@ $(document).ready(function () {
         }
         if (scroll >= pos5 && scroll < pos6) {
             /*roadmap*/
-            $('.p_1').stop().animate({"top": "25%"}, 600);
-            $('.p_2').stop().animate({"top": "30%"}, 600);
-            $('.p_3').stop().animate({"top": "35%"}, 600);
-            $('.p_4').stop().animate({"top": "40%"}, 600);
-            $('.p_5').stop().animate({"top": "45%"}, 600);
-            $('.p_6').stop().animate({"top": "50%"}, 600);
-            $('.p_7').stop().animate({"top": "55%"}, 600);
-            $('.p_8').stop().animate({"top": "60%"}, 600);
-            $('.p_9').stop().animate({"top": "65%"}, 600, function () {
-                $('.d_roadmap .airplane').stop().animate({'opacity': '1', 'top': '30%', 'left': '85%'}, 1400);
+            $('.p_1').stop().animate({"top": "25%"}, 400);
+            $('.p_2').stop().animate({"top": "30%"}, 400);
+            $('.p_3').stop().animate({"top": "35%"}, 400);
+            $('.p_4').stop().animate({"top": "40%"}, 400);
+            $('.p_5').stop().animate({"top": "45%"}, 400);
+            $('.p_6').stop().animate({"top": "50%"}, 400);
+            $('.p_7').stop().animate({"top": "55%"}, 400);
+            $('.p_8').stop().animate({"top": "60%"}, 400);
+            $('.p_9').stop().animate({"top": "65%"}, 400, function () {
+                $('.d_roadmap .airplane').stop().animate({'opacity': '1', 'top': '30%', 'left': '85%'}, 1200);
                 $('.step_5>div:eq(0)').stop().animate({
                     'top': '35%',
                     'left': '2%',
@@ -169,7 +169,11 @@ $(document).ready(function () {
         $('body,html').stop().animate({'scrollTop': 0});
     });
 
-    $( "#lan" ).change(function() {
+    $("#lan").change(function () {
         changeLan(this.value);
     });
 });
+
+function sendEmail() {
+    window.location.href = 'mailto:contact@agileteam.info';
+}

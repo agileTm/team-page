@@ -248,6 +248,7 @@ select::-ms-expand {
     width: 50%;
     height: 100%;
     text-align: center;
+    cursor: pointer;
 }
 
 .main_tit {
@@ -1189,7 +1190,8 @@ select::-ms-expand {
     border-radius: 50px;
     width: 400px;
     height: 70px;
-    margin: 0 auto
+    margin: 0 auto;
+    cursor: pointer;
 }
 
 /*================탑이동버튼===============*/
