@@ -6,7 +6,9 @@ var langs = {
         aram: '최적의 프로세스로 기술을 디자인에 담는 3년차 디자이너',
         sora: 'Youtube, Twitch 게임 스트리머',
         yeaseul: 'Ph.D Student(UW), Research assistant, Research internship in Adobe, MSR,Data Science',
-        serviceDescription: 'Infotrades는 정보, 리서치 수요자와 그 분야의 전문가를 연결하는 것 뿐만 아니라, 거대한 정보의 바다에서 필요한 정보를 효율적으로 선별하여 문서화 할 수 있는 전 세계의 리서처를 연결하는 플랫폼 입니다.'
+        serviceDescription: 'Infotrades는 정보, 리서치 수요자와 그 분야의 전문가를 연결하는 것 뿐만 아니라, 거대한 정보의 바다에서 필요한 정보를 효율적으로 선별하여 문서화 할 수 있는 전 세계의 리서처를 연결하는 플랫폼 입니다.',
+        waitingYou: '당신을 기다립니다.',
+        plzContact: '저희와 함께하고 싶으신 분들은 연락주세요.'
     },
     'en': {
         teamDescription: 'We are an agile, flexible, quick-acting startup team that is establishing valuable platforms that will bring better changes to the world. We are prepared to create value with what we know, and construct meaningful platforms that connect individuals.',
@@ -15,6 +17,8 @@ var langs = {
         aram: ' 3 years+ experienced designer put technology into the design with the optimal process',
         sora: 'Youtube, Twitch game streamer',
         yeaseul: 'Ph.D Student(UW), Research assistant, Research internship in Adobe, MSR,Data Science',
-        serviceDescription: 'This platform will not only interconnect those who seek information from certain domains with experts of that field, but also allow many acute web researchers the capability to gather and filter out necessary information from the vast sea data that is the web.'
+        serviceDescription: 'This platform will not only interconnect those who seek information from certain domains with experts of that field, but also allow many acute web researchers the capability to gather and filter out necessary information from the vast sea data that is the web.',
+        waitingYou: 'We are waiting for your contact.',
+        plzContact: 'Please contact us if you want to join us.'
     }
 };
