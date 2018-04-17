@@ -66,6 +66,15 @@ gulp.task('build', done =>
         done
     ));
 
+gulp.task('simple', done =>
+    runSequence(
+        'styles',
+        'scripts',
+        'index-min',
+        'script-lib-move',
+        done
+    ));
+
 // Watch
 gulp.task('watch', function() {
     // Watch .css files
