@@ -1,7 +1,7 @@
 function getLang() {
     var lang = null;
     if (window && window.localStorage !== undefined) {
-        lang = window.sessionStorage.getItem('lang');
+        lang = window.localStorage.getItem('lang');
     }
 
     if (!lang) {
@@ -36,7 +36,7 @@ function changeLan(lang) {
         $('#' + key).html(text[key]);
     }
 
-    window.sessionStorage.setItem('lang', lang);
+    window.localStorage.setItem('lang', lang);
 }
 
 i18n();
