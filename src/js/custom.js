@@ -116,8 +116,8 @@ function mousewheel() {
 
     var winW = $(window).width();
 
+    $('.wrap>div').off('mousewheel');
     if (winW <= 768) {
-        $('.wrap>div').off('mousewheel');
         /*---로드맵제어---*/
         $('.d_roadmap').css({'display': 'none'});
         $('.m_roadmap').css({'display': 'block'});
