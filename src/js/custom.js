@@ -3,33 +3,6 @@ $(document).ready(function () {
     var winH;
     winH = $(window).height();
     $('#main,#agile,#member,#service,#raodmap,#footer').height(winH);
-    var winW = $(window).width();
-    /*---마우스휠이벤트---*/
-    var speed = 1000;
-    var ease = "easeOutExpo";
-    $(".wrap>div").on("mousewheel", function (event, delta) {
-        event.preventDefault();
-        //마우스 휠을 올렸을때
-        if (delta > 0) {
-            var tg = $(this).prev().offset().top;
-            $("html,body").stop().animate({"scrollTop": tg}, speed, ease);
-            //마우스 휠을 내렸을때
-        } else if (delta < 0) {
-            var tg = $(this).next().offset().top;
-            $("html,body").stop().animate({"scrollTop": tg}, speed, ease);
-        }
-    });
-
-    /*---로드맵제어---*/
-    $('.d_roadmap').css({'display': 'block'});
-    $('.m_roadmap').css({'display': 'none'});
-
-    if (winW <= 768) {
-        /*---로드맵제어---*/
-        $('.d_roadmap').css({'display': 'none'});
-        $('.m_roadmap').css({'display': 'block'});
-    }
-
     /*---탑이동버튼---*/
     $('.topBtn').css({'display': 'none'});
 
@@ -44,29 +17,46 @@ $(document).ready(function () {
 
         /*---마우스휠이벤트---*/
         var speed = 1000;
-        var ease = "easeOutExpo";
+        var ease = 'easeOutExpo';
 
-        $(".wrap>div").on("mousewheel", function (event, delta) {
+        $('.wrap>div').on('mousewheel', function (event, delta) {
             event.preventDefault();
             //마우스 휠을 올렸을때
             if (delta > 0) {
                 var tg = $(this).prev().offset().top;
-                $("html,body").stop().animate({"scrollTop": tg}, speed, ease);
+                $('html,body').stop().animate({'scrollTop': tg}, speed, ease);
                 //마우스 휠을 내렸을때
             } else if (delta < 0) {
                 var tg = $(this).next().offset().top;
-                $("html,body").stop().animate({"scrollTop": tg}, speed, ease);
+                $('html,body').stop().animate({'scrollTop': tg}, speed, ease);
             }
         });
 
-        /*---로드맵제어---*/
-        $('.d_roadmap').css({'display': 'block'});
-        $('.m_roadmap').css({'display': 'none'});
-
         if (winW <= 768) {
+            $('.wrap>div').off('mousewheel');
             /*---로드맵제어---*/
             $('.d_roadmap').css({'display': 'none'});
             $('.m_roadmap').css({'display': 'block'});
+        } else {
+            /*---마우스휠이벤트---*/
+            var speed = 1000;
+            var ease = 'easeOutExpo';
+            $('.wrap>div').on('mousewheel', function (event, delta) {
+                event.preventDefault();
+                //마우스 휠을 올렸을때
+                if (delta > 0) {
+                    var tg = $(this).prev().offset().top;
+                    $('html,body').stop().animate({'scrollTop': tg}, speed, ease);
+                    //마우스 휠을 내렸을때
+                } else if (delta < 0) {
+                    var tg = $(this).next().offset().top;
+                    $('html,body').stop().animate({'scrollTop': tg}, speed, ease);
+                }
+            });
+
+            /*---로드맵제어---*/
+            $('.d_roadmap').css({'display': 'block'});
+            $('.m_roadmap').css({'display': 'none'});
         }
 
     });
@@ -102,7 +92,7 @@ $(document).ready(function () {
         if (scroll >= pos3 && scroll < pos4) {
             /*member*/
             $('.member_list>div').addClass('top_ani');
-            $('.member_list>div').stop().animate({'opacity': '1'}, 800)
+            $('.member_list>div').stop().animate({'opacity': '1'}, 800);
             $('.topBtn').css({'display': 'block'});
         }
         if (scroll >= pos4 && scroll < pos5) {
@@ -113,15 +103,15 @@ $(document).ready(function () {
         }
         if (scroll >= pos5 && scroll < pos6) {
             /*roadmap*/
-            $('.p_1').stop().animate({"top": "25%"}, 400);
-            $('.p_2').stop().animate({"top": "30%"}, 400);
-            $('.p_3').stop().animate({"top": "35%"}, 400);
-            $('.p_4').stop().animate({"top": "40%"}, 400);
-            $('.p_5').stop().animate({"top": "45%"}, 400);
-            $('.p_6').stop().animate({"top": "50%"}, 400);
-            $('.p_7').stop().animate({"top": "55%"}, 400);
-            $('.p_8').stop().animate({"top": "60%"}, 400);
-            $('.p_9').stop().animate({"top": "65%"}, 400, function () {
+            $('.p_1').stop().animate({'top': '25%'}, 400);
+            $('.p_2').stop().animate({'top': '30%'}, 400);
+            $('.p_3').stop().animate({'top': '35%'}, 400);
+            $('.p_4').stop().animate({'top': '40%'}, 400);
+            $('.p_5').stop().animate({'top': '45%'}, 400);
+            $('.p_6').stop().animate({'top': '50%'}, 400);
+            $('.p_7').stop().animate({'top': '55%'}, 400);
+            $('.p_8').stop().animate({'top': '60%'}, 400);
+            $('.p_9').stop().animate({'top': '65%'}, 400, function () {
                 $('.d_roadmap .airplane').stop().animate({'opacity': '1', 'top': '30%', 'left': '85%'}, 1200);
                 $('.step_5>div:eq(0)').stop().animate({
                     'top': '35%',
@@ -169,7 +159,7 @@ $(document).ready(function () {
         $('body,html').stop().animate({'scrollTop': 0});
     });
 
-    $("#lan").change(function () {
+    $('#lan').change(function () {
         changeLan(this.value);
     });
 });
