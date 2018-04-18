@@ -1,64 +1,8 @@
 $(document).ready(function () {
-    /*---화면 가로값, 세로값 조정---*/
-    var winH;
-    winH = $(window).height();
-    $('#main,#agile,#member,#service,#raodmap,#footer').height(winH);
-    /*---탑이동버튼---*/
-    $('.topBtn').css({'display': 'none'});
-
+    mousewheel();
     /*---리사이즈---*/
     $(window).on('resize', function () {
-        winH = $(window).height();
-        $('#main,#agile,#member,#service,#raodmap,#footer').height(winH);
-        $('.topBtn').css({'display': 'none'});
-
-
-        var winW = $(window).width();
-
-        /*---마우스휠이벤트---*/
-        var speed = 1000;
-        var ease = 'easeOutExpo';
-
-        $('.wrap>div').on('mousewheel', function (event, delta) {
-            event.preventDefault();
-            //마우스 휠을 올렸을때
-            if (delta > 0) {
-                var tg = $(this).prev().offset().top;
-                $('html,body').stop().animate({'scrollTop': tg}, speed, ease);
-                //마우스 휠을 내렸을때
-            } else if (delta < 0) {
-                var tg = $(this).next().offset().top;
-                $('html,body').stop().animate({'scrollTop': tg}, speed, ease);
-            }
-        });
-
-        if (winW <= 768) {
-            $('.wrap>div').off('mousewheel');
-            /*---로드맵제어---*/
-            $('.d_roadmap').css({'display': 'none'});
-            $('.m_roadmap').css({'display': 'block'});
-        } else {
-            /*---마우스휠이벤트---*/
-            var speed = 1000;
-            var ease = 'easeOutExpo';
-            $('.wrap>div').on('mousewheel', function (event, delta) {
-                event.preventDefault();
-                //마우스 휠을 올렸을때
-                if (delta > 0) {
-                    var tg = $(this).prev().offset().top;
-                    $('html,body').stop().animate({'scrollTop': tg}, speed, ease);
-                    //마우스 휠을 내렸을때
-                } else if (delta < 0) {
-                    var tg = $(this).next().offset().top;
-                    $('html,body').stop().animate({'scrollTop': tg}, speed, ease);
-                }
-            });
-
-            /*---로드맵제어---*/
-            $('.d_roadmap').css({'display': 'block'});
-            $('.m_roadmap').css({'display': 'none'});
-        }
-
+        mousewheel();
     });
 
     /*---스크롤 이벤트---*/
@@ -163,6 +107,42 @@ $(document).ready(function () {
         changeLan(this.value);
     });
 });
+
+function mousewheel() {
+    var winH = $(window).height();
+    $('#main,#agile,#member,#service,#raodmap,#footer').height(winH);
+    $('.topBtn').css({'display': 'none'});
+
+
+    var winW = $(window).width();
+
+    if (winW <= 768) {
+        $('.wrap>div').off('mousewheel');
+        /*---로드맵제어---*/
+        $('.d_roadmap').css({'display': 'none'});
+        $('.m_roadmap').css({'display': 'block'});
+    } else {
+        /*---마우스휠이벤트---*/
+        var speed = 1000;
+        var ease = 'easeOutExpo';
+        $('.wrap>div').on('mousewheel', function (event, delta) {
+            event.preventDefault();
+            //마우스 휠을 올렸을때
+            if (delta > 0) {
+                var tg = $(this).prev().offset().top;
+                $('html,body').stop().animate({'scrollTop': tg}, speed, ease);
+                //마우스 휠을 내렸을때
+            } else if (delta < 0) {
+                var tg = $(this).next().offset().top;
+                $('html,body').stop().animate({'scrollTop': tg}, speed, ease);
+            }
+        });
+
+        /*---로드맵제어---*/
+        $('.d_roadmap').css({'display': 'block'});
+        $('.m_roadmap').css({'display': 'none'});
+    }
+}
 
 function sendEmail() {
     window.location.href = 'mailto:contact@agileteam.info';
