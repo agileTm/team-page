@@ -36,9 +36,9 @@ gulp.task('scripts', () =>
 // Styles
 gulp.task('styles', () =>
     gulp.src(['src/css/*.css'])
-        .pipe(concatCss('style.css'))
+        /*.pipe(concatCss('style.css'))*/
         .pipe(rename({suffix: '.min'}))
-        .pipe(minifycss())
+        /*.pipe(minifycss())*/
         .pipe(gulp.dest('dist/css')));
 
 // index.html 파일 복사
