@@ -36,7 +36,7 @@ gulp.task('scripts', () =>
 // Styles
 gulp.task('styles', () =>
     gulp.src(['src/css/*.css'])
-        /*.pipe(concatCss('style.css'))*/
+    /*.pipe(concatCss('style.css'))*/
         .pipe(rename({suffix: '.min'}))
         /*.pipe(minifycss())*/
         .pipe(gulp.dest('dist/css')));
@@ -45,6 +45,10 @@ gulp.task('styles', () =>
 gulp.task('index-min', () =>
     gulp.src('src/index.html')
         .pipe(minifyHTML())
+        .pipe(gulp.dest('dist/')));
+
+gulp.task('site-map-robots', () =>
+    gulp.src(['src/robots.txt', 'src/sitemap.xml'])
         .pipe(gulp.dest('dist/')));
 
 
@@ -63,6 +67,7 @@ gulp.task('build', done =>
         'index-min',
         'script-lib-move',
         'img',
+        'site-map-robots',
         done
     ));
 
@@ -72,11 +77,12 @@ gulp.task('simple', done =>
         'scripts',
         'index-min',
         'script-lib-move',
+        'site-map-robots',
         done
     ));
 
 // Watch
-gulp.task('watch', function() {
+gulp.task('watch', function () {
     // Watch .css files
     gulp.watch('src/css/*.css', ['styles']);
 
